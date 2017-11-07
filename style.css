@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css?family=Jura:300');
+body {
+    padding: 0;
+    margin: 0;
+    background-color: wheat;
+    font-family: 'Jura';
+    font-weight: 400;
+}
+
+#block1 {
+    margin: 100px auto 0 auto;
+    width: 250px;
+    height: 100px;
+    line-height: 100px;
+    background-color: crimson;
+    box-shadow: 3px 3px 3px rgba(0, 0, 0, 0.718);
+    font-size: 3em;
+    text-align: center;
+    color: white;
+    cursor: pointer;
+}

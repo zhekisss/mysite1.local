@@ -1,0 +1,45 @@
+
+
+AddDefaultCharset utf-8
+
+# .htaccess для магазина
+Options -Indexes
+DirectoryIndex index.php
+AddDefaultCharset utf-8
+Options All -Indexes
+#php_flag display_errors off
+#php_flag display_startup_errors off
+
+
+RewriteEngine on
+RewriteBase /
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^(.*)$ /
+
+# Попробуйте эту настройку .htaccess, если у Вас возникли проблемы с отображением
+# стилей css
+#AddDefaultCharset cp-1251
+#ErrorDocument 404 / 
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} -s [OR]
+RewriteCond %{REQUEST_FILENAME} -l [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^.*$ - [L]
+RewriteRule ^.*$ index.php [L]
+
+# Запрещение кеширования
+# Необходимо включение модулей
+# mod_headers.c и mod_expires.c
+ 
+# Заголовок Cache-Control
+<IfModule mod_headers.c>
+	Header append Cache-Control "no-store, no-cache, must-revalidate"
+</IfModule>
+ 
+# Заголовок Expires
+<IfModule mod_expires.c>
+	ExpiresActive On ExpiresDefault "now"
+</IfModule>

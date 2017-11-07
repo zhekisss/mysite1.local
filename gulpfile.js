@@ -1,0 +1,77 @@
+var gulp = require('gulp'),
+    sass = require('gulp-sass'),
+    miniCss = require('gulp-minify-css'),
+    // sourceMaps = require('gulp-sourcemaps');
+    rename = require('gulp-rename'),
+    plumber = require('gulp-plumber'),
+    minijs = require('gulp-uglify');
+
+var src = {
+    main_sass: "content/themes/default/sass/main.scss",
+    sass: "content/themes/default/scss/**/*.scss",
+    css: "src/css/**/*.css",
+    js: "src/js/**/*.js",
+    libs: "src/libs/**/*.js",
+    static: "src/static/**",
+    sprites: "src/sprites/*.*",
+    tmp: "src/tmp"
+};
+
+gulp.task('default', ['watchSass']);
+
+gulp.task('sass', function() {
+    return gulp.src('content/themes/default/sass/style.scss')
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(gulp.dest('content/themes/default/css'))
+});
+
+gulp.task('minicss', function() {
+    return gulp.src('content/themes/default/css/style.css')
+        .pipe(plumber())
+        // .pipe(sourceMaps.init())
+        .pipe(miniCss({
+            keepSpecialComments: 0,
+            restructuring: false,
+            processImport: false
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        // .pipe(sourceMaps.write())
+        .pipe(gulp.dest('content/themes/default/css'))
+
+});
+
+// gulp.task('minijs', function() {
+// return gulp.src('content/themes/default/js/main.js')
+// .pipe(plumber())
+// .pipe(minijs({
+// ext: {
+// src: '-debug.js',
+// min: '.min.js'
+// },
+// exclude: ['tasks'],
+// ignoreFiles: ['.combo.js', '.min.js']
+// }))
+// .pipe(gulp.dest('content/themes/default/js'))
+// });
+
+gulp.task('minijs', function() {
+    return gulp.src('content/themes/default/js/main.js')
+        .pipe(plumber())
+        .pipe(minijs())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('content/themes/default/js'))
+});
+
+gulp.task('watchSass', function() {
+    gulp.watch('content/themes/default/sass/style.scss', ['sass', 'log'])
+    gulp.watch('content/themes/default/css/style.css', ['minicss', 'log'])
+    gulp.watch('content/themes/default/js/main.js', ['minijs', 'log'])
+});
+gulp.task('log', function() {
+    console.log('OK');
+});

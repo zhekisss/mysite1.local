@@ -108,7 +108,7 @@ $MyNewObj = new Test;
 
 $data[] =  rus_date("D M j G:i:s T Y");
 
-file_put_contents('file.txt', "$data[0]\n", FILE_APPEND);
+
 
 ?>
 </body>

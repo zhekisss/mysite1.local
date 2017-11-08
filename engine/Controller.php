@@ -27,12 +27,9 @@ abstract class Controller
 
     protected $redirect;
 
-    protected $queryBuilder;
-
     public function __construct(DI $di)
     {
 
-        $this->queryBuilder = new QueryBuilder;
         $this->di           = $di;
         $this->config       = $this->di->get('config');
         $this->view         = $this->di->get('view');

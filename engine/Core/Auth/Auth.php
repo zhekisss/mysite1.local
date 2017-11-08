@@ -2,44 +2,50 @@
 
 namespace Engine\Core\Auth;
 
-use Engine\Helper\Cookie, Engine\Core\Auth\AuthInterface;
+use Engine\Helper\Cookie;
+use Engine\Core\Auth\AuthInterface;
 
-class Auth implements AuthInterface{
+class Auth implements AuthInterface
+{
     
     protected $authorized = false;
     protected $user;
     protected $passwordHashed;
+    protected $password;
+    protected $hash;
     
-    public function __construct(){
-        
-        
+    public function __construct()
+    {
     }
     
-    public function authorized(){
+    public function authorized()
+    {
         return $this->authorized;
     }
     
-    public function authorize($user){
+    public function authorize($user)
+    {
         
         Cookie::set('auth_authorized', true);
         Cookie::set('auth_user', true);
     }
     
-    public function unAuthorize(){
+    public function unAuthorize()
+    {
         
         Cookie::delete('auth_authorized');
         Cookie::delete('auth_user');
-
     }
     
-    public function encryptPassword($password){
-        
-        $passwordHashed = password_hash($password, PASSWORD_BCRYPT);
+    public function encryptPassword($password)
+    {        
+        $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
         return $this->passwordHashed = $passwordHashed;
     }
 
     public function hashUser()
     {
-        return false;
+        // return password_verify($password, $hash);
+        return Cookie::get('auth_user');
     }
 }

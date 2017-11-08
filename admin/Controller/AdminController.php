@@ -15,6 +15,7 @@ class AdminController extends Controller{
     */
     protected $auth;
     
+
     /**
     * AdminController
     * @param \Engine\DI\DI $di

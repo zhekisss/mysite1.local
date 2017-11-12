@@ -96,7 +96,7 @@ class View extends Theme
     {
 
         $sql = Posts::sql();
-        $data = $this->db->query($sql);
+        $data = $this->db->query($sql, []);
 
         return $data;
     }

@@ -6,33 +6,28 @@ use Engine\Controller;
 use Engine\Core\Auth\Auth;
 use Engine\DI\DI;
 
-
-
-class AdminController extends Controller{
-    
+class AdminController extends Controller
+{
     /**
     * @var Auth
     */
     protected $auth;
-    
 
     /**
     * AdminController
     * @param \Engine\DI\DI $di
     */
-    public function __construct(DI $di){
+    public function __construct(DI $di)
+    {
         
         parent::__construct($di);
         
         $this->auth = new Auth();
         
-        if ($this->auth->hashUser() === false){            
-            
+        if ($this->auth->hashUser() === null) {
             header('Location: /admin/login/');
-            
             exit;
         }
-        
     }
     
     /**
@@ -40,10 +35,10 @@ class AdminController extends Controller{
     * Check authorization
     * @return void
     */
-    public function checkAuthorization(){
+    private function checkAuthorization()
+    {
         
-        if(!$this->auth->authorized()){
-            
+        if (!$this->auth->authorized()) {
             header('Location: /admin/login/');
             exit;
         }
@@ -53,5 +48,6 @@ class AdminController extends Controller{
     {
         $this->auth->unAuthorize();
         header('Location: /admin/login/');
+        exit;
     }
 }

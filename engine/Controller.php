@@ -1,35 +1,36 @@
 <?php
 namespace Engine;
 
-use Engine\DI\DI,
-    Engine\Core\Database\QueryBuilder;
-
+    use Engine\DI\DI;
+    use Engine\Core\Database\QueryBuilder;
 
 abstract class Controller
 {
-
+    
     /**
-     * @var Engine\DI\DI
-     */
+    * @var Engine\DI\DI
+                     */
     protected $di;
-
+    
     protected $db;
-
+    
     protected $view;
-
+    
     protected $config;
-
+    
     protected $auth;
-
+    
     protected $request;
-
+    
     protected $ajax;
-
+    
     protected $redirect;
 
+    protected $load;
+    
     public function __construct(DI $di)
     {
-
+        
         $this->di           = $di;
         $this->config       = $this->di->get('config');
         $this->view         = $this->di->get('view');
@@ -38,5 +39,6 @@ abstract class Controller
         $this->request      = $this->di->get('request');
         $this->ajax         = $this->di->get('ajax');
         $this->redirect     = $this->di->get('redirect');
+        $this->load     	= $this->di->get('load');
     }
 }

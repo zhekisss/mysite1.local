@@ -4,7 +4,7 @@ namespace Engine\Core\Ajax;
 
 
 
-class Ajax{
+class Ajax implements AjaxInterface{
     
     public function __construct(){
         

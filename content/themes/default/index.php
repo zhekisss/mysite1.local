@@ -21,10 +21,7 @@
     <h5>Section 1</h5>
         <p>Stuff</p>
         <p>
-        <?php 
-        echo rus_date('D'); 
         
-        ?>
         </p>
 
     </div>

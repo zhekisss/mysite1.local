@@ -2,22 +2,24 @@
 
 namespace Admin\Controller;
 
-use Engine\Controller,
-Engine\DI\DI,
-Engine\Core\Auth\Auth,
-Engine\Core\Database\QueryBuilder;
+use Engine\Controller;
+use Engine\DI\DI;
+use Engine\Core\Auth\Auth;
+use Engine\Core\Database\QueryBuilder;
 
 class LoginController extends Controller
 {
+    
     /**
     * @var Auth
-    */
+        */
     protected $auth;
+    
     
     /**
     * LoginController constructor.
-    * @param DI $di
-    */
+        * @param DI $di
+        */
     public function __construct(DI $di)
     {
         parent::__construct($di);
@@ -25,7 +27,6 @@ class LoginController extends Controller
         $this->auth = new Auth();
         
         if ($this->auth->hashUser() === true) {
-        
             header( 'Location: /admin/');
             
             exit;
@@ -43,35 +44,41 @@ class LoginController extends Controller
         $queryBuilder = new QueryBuilder();
         
         $sql = $queryBuilder
-        ->select()
-        ->from('user')
-        ->where('email', $params['email'])
-        ->where('password', md5($params['password']))
-        ->limit(1)
-        ->sql();
+                ->select()
+                ->from('user')
+                ->where('email', $params['email'])
+                ->limit(1)
+                ->sql();
         
         $query = $this->db->query($sql, $queryBuilder->values);
-        
+
+        $emailPass = $params['email'].$params['password'];
+        $queryEmailPass = $query[0]['password'];
+
         if (!empty($query)) {
             $user = $query[0];
             
-            if ($user['role'] == 'admin') {
-                $hash = md5($user['id'] . $user['email'] . $user['password'] . $this->auth->salt());
+            if ($user['role'] == 'administrator') {
                 
-                $sql = $queryBuilder
-                ->update('user')
-                ->set(['hash' => $hash])
-                ->where('id', $user['id'])->sql();
-                
-                $this->db->execute($sql, $queryBuilder->values);
-                
-                $this->auth->authorize($hash);
-                
-                header( 'Location: /admin/login/');
-                exit;
+                if ($this->auth->encryptPassword($emailPass, $queryEmailPass)) {
+                    $hash = password_hash($params['email'].$params['password'], 1);
+                    
+                    $sql = $queryBuilder
+                    ->update('user')
+                    ->set(['password' => $hash])
+                    ->where('id', $user['id'])
+                    ->sql();
+                    
+                    $this->db->execute($sql, $queryBuilder->values);
+                    
+                    $this->auth->authorize($user);
+                    header("Location: /admin/login/");
+                    exit;
+                } else {
+                }
             }
         }
-        
         echo 'Incorrect email or password.';
+        exit;
     }
 }

@@ -23,7 +23,7 @@ class UrlDispatcher{
     ];
     
     /**
-    * Добавить шаблон
+    * Add pattern
     *
     * @param string $key
     * @param string $pattern
@@ -136,6 +136,7 @@ class UrlDispatcher{
      * @param string $uri
      * @return $uri
      */
+
     public function uriFix($uri)
     {
         $urilen = strlen($uri);

@@ -14,6 +14,7 @@
 
 <body>
   <header>
+
     <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
       <div class="container">
         <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
@@ -46,7 +47,7 @@
         </div>
 
         <div class="right-toolbar">
-          <a href="#">
+          <a href="/admin/logout/">
             <i class="icon-logout icons"></i> Logout
           </a>
         </div>

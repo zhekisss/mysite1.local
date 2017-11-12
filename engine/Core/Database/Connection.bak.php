@@ -42,11 +42,11 @@ class Connection {
     * @param string $sql
     * @return void
     */
-    public function execute($sql, $values){
+    public function execute($sql){
         
         $sth = $this->link->prepare($sql);
         
-        return $sth->execute($values);
+        return $sth->execute();
     }
     
     /**
@@ -55,11 +55,11 @@ class Connection {
     * @param string $sql
     * @return void
     */
-    public function query($sql, $values){
+    public function query($sql){
         $sql1 = $sql;
         $sth = $this->link->prepare($sql);
         
-        $sth->execute($values);
+        $sth->execute();
         
         if (!$result = $sth->fetchAll(PDO::FETCH_ASSOC)){
             return [];

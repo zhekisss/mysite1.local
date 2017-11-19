@@ -3,10 +3,7 @@
 //=================================//
 // Вывод постов на странице
 
-$data = $this->post();
-
 function showPosts($data){
-    
     
     $count = 0;
     foreach ($data as $posts) {

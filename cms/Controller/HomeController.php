@@ -3,26 +3,29 @@
 namespace Cms\Controller;
 
 class HomeController extends CmsController{
-    
-    public function index(){
+   
+   
+    public function index()
+    {
         
-        $obj = [
-        'db' => $this->db
+        // $this->load->model('Page');
+        // $this->load->model('User');
         
-        ];
-        
-        $this->view->render('index', $obj);
+        // $model = $this->di->get('model');
+        $this->view->setData('model', $this->model);
+        $this->view->render('index', $this->model);
         
     }
     
-    public function news($id = false){
+    public function news($id = false)
+    {
         
-        $obj = [
-        'db'    => $this->db,
-        'news'  => $id
+        $arr = [
+        'category'    => 'news',
+        'id'  => $id
         ];
         
-        $this->view->render('news', $obj);
+        $this->view->render('news', $arr);
         
     }
 }

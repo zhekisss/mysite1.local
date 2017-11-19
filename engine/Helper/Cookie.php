@@ -16,9 +16,7 @@ class Cookie{
 	
 	public static function set($key, $value){
 		
-		
 		$_SESSION[$key] = $value;
-		
 		
 	}
 	
@@ -32,7 +30,6 @@ class Cookie{
 	
 	public static function get($key){
 		
-		
 		if ( isset($_SESSION[$key]) ) {
 			
 			return $_SESSION[$key];
@@ -42,8 +39,6 @@ class Cookie{
 		return null;
 		
 	}
-	
-	
 	
 	/**
     * Delete cookies by key
@@ -55,5 +50,3 @@ class Cookie{
 		$_SESSION[$key] = '';
 	}
 }
-
-

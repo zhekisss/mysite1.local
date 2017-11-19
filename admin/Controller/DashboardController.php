@@ -7,10 +7,13 @@ class DashboardController extends AdminController{
 
     public function dashboard(){
         
-        $userModel = $this->load->model('user');
-
-        print_r($userModel);
-
+         // Load models
+         $this->load;
+         
+        // Load language
+        // $this->load->language('dashboard/main');
+        // \var_dump($this);
+        
         $this->view->render('dashboard');
     }
 }

@@ -2,7 +2,7 @@
 
 <div class="container row">
 <?php
-showPosts($data);
+print_r($vars);
 ?>
 </div>
 

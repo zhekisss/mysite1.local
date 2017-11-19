@@ -22,10 +22,11 @@ class AdminController extends Controller
         
         parent::__construct($di);
         
-        $this->auth = new Auth();
+        // $this->auth = new Auth();
         
         if ($this->auth->hashUser() === null) {
-            header('Location: /admin/login/');
+            // header('Location: /admin/login/');
+            $this->redirect->redirect('/admin/login/');
             exit;
         }
     }

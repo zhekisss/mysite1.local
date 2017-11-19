@@ -25,7 +25,7 @@
     </form>
 <div class="error-message">
   <h2>
-    
+    <?= $this->request->session('badPassword'); ?>
 </h2>
 </div>
   </div>

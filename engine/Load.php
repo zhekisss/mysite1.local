@@ -6,8 +6,8 @@ use Engine\DI\DI;
 
 class Load
 {
-    const MASK_MODEL_ENTITY     = '\%s\Model\%s\%s';
-    const MASK_MODEL_REPOSITORY = '\%s\Model\%s\%sRepository';
+    const MASK_MODEL_ENTITY     = '\Model\%s\%s';
+    const MASK_MODEL_REPOSITORY = '\Model\%s\%sRepository';
 
     const FILE_MASK_LANGUAGE    = 'Language/%s/%s.ini';
 
@@ -26,18 +26,16 @@ class Load
     /**
      * @param $modelName
      * @param bool $modelDir
-     * @param bool $env
      * @return bool
      */
-    public function model($modelName, $modelDir = false, $env = false)
+    public function model($modelName, $modelDir = false)
     {
         $modelName  = ucfirst($modelName);
         $modelDir   = $modelDir ? $modelDir : $modelName;
-        $env        = $env ? $env : ENV;
 
         $namespaceModel = sprintf(
             self::MASK_MODEL_REPOSITORY,
-            $env, $modelDir, $modelName
+            $modelDir, $modelName
         );
 
         $isClassModel = class_exists($namespaceModel);
@@ -49,7 +47,7 @@ class Load
 
             $this->di->set('model', $modelRegistry);
         }
-
+        // unset($this->di);
         return $isClassModel;
     }
 

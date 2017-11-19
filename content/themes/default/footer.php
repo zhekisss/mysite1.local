@@ -10,7 +10,7 @@
 <script src="/content/themes/default/layerslider/js/greensock.js"></script>
 <script src="/content/themes/default/layerslider/js/layerslider.transitions.js"></script>
 <script src="/content/themes/default/layerslider/js/layerslider.kreaturamedia.jquery.js"></script>
-<!-- <script src="/content/themes/default/js/main.min.js"></script> -->
+<script src="/content/themes/default/js/main.min.js"></script>
 </body>
 
 </html>

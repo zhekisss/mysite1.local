@@ -27,6 +27,13 @@ var header = $('header'),
     xz = 0,
     materialIcons = $(".material-icons");
 
+var navLi = document.querySelectorAll('nav ul li a');
+
+navLi.forEach(function(obj, index) {
+    index = index + 1;
+    obj.innerHTML += " " + index;
+});
+// console.log(navLi);
 //
 // menuNav.each(function (i) {
 // console.log(menuNav[i]);

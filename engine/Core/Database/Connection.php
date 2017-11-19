@@ -55,15 +55,26 @@ class Connection {
     * @param string $sql
     * @return void
     */
-    public function query($sql, $values){
-        $sql1 = $sql;
+    public function query($sql, $values = [], $statement = PDO::FETCH_OBJ)
+    {
         $sth = $this->link->prepare($sql);
-        
+        // print_r($values);
         $sth->execute($values);
-        
-        if (!$result = $sth->fetchAll(PDO::FETCH_ASSOC)){
+
+        $result = $sth->fetchAll($statement);
+
+        if($result === false){
             return [];
         }
+
         return $result;
+    }
+
+    /**
+     * @return int
+     */
+    public function lastInsertId()
+    {
+        return $this->link->lastInsertId();
     }
 }

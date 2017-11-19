@@ -1,6 +1,6 @@
 <?php
 
-namespace Admin\Model\User;
+namespace Model\User;
 
 use Engine\Core\Database\ActiveRecord;
 

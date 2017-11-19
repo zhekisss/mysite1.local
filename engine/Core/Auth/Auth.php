@@ -25,11 +25,9 @@ class Auth implements AuthInterface
     
     public function authorize($user)
     {
-        
         Cookie::set('auth_authorized', true);
         Cookie::set('auth_user', true);
         Cookie::set('user_name', $user);
-        
     }
     
     public function unAuthorize()
@@ -47,15 +45,17 @@ class Auth implements AuthInterface
      * @return boolean
      */
     public function encryptPassword($password, $passwordHash)
-    {        
-
-        // $passwordHashed = password_hash($password, PASSWORD_DEFAULT);
-        // return $this->passwordHashed = $passwordHashed;
+    {   
         return password_verify($password, $passwordHash);
     }
 
     public function hashUser()
     {
         return Cookie::get('auth_user');
+    }
+
+    public function passwordHash($pass)
+    {
+        return password_hash(trim($pass), 1);
     }
 }

@@ -40,6 +40,8 @@ class Request{
     */
     public $server = [];
     
+    public $session = [];
+    
     public function __construct(){
         
         $this->get      = $_GET;
@@ -48,6 +50,16 @@ class Request{
         $this->cookie   = $_COOKIE;
         $this->files    = $_FILES;
         $this->server   = $_SERVER;
-     
-     }
+        $this->session  = $_SESSION;
+        
+    }
+    
+    public function session($key)
+    {
+        if (isset($this->session[$key])) {
+            return $this->session[$key];
+        } else{
+            return false;
+        };
+    }
 }

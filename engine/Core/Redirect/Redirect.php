@@ -3,13 +3,16 @@ namespace Engine\Core\Redirect;
 
 class Redirect
 {
-
-    public $req404;
-    public $req301;
-
-    public function __construct()
+    
+    public function redirect($value, $time = '')
     {
-        $this->req404 = header("HTTP/1.0 404 Not Found");
+        switch ($value) {
+            case '404' : header("HTTP/1.0 404 Not Found");
+                break;
+            case '301' : header("HTTP/1.0 301");
+                break;
+            default : header("Location: {$value} {$time}");
+        }
     }
-
+    
 }

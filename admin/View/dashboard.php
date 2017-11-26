@@ -1,5 +1,3 @@
-
-
 <?php $this->header(); ?>
   <main>
     <div class="container">
@@ -14,5 +12,5 @@
       </div>
     </div>
   </main>
- 
+ <?php // print_r($this->request->session); ?>
   <?php $this->footer(); ?>

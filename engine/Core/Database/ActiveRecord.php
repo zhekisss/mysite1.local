@@ -55,6 +55,7 @@ trait ActiveRecord
         $this->queryBuilder->values
         );
         
+        $data = isset($find[0]) ? $find[0] : null;
         return isset($find[0]) ? $find[0] : null;
     }
     

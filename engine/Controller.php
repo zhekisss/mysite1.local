@@ -29,7 +29,7 @@ abstract class Controller
         $this->db           = $this->di->get('db');
         $this->auth         = $this->di->get('auth');
         $this->request      = $this->di->get('request');
-        $this->ajax         = $this->di->get('ajax');
+        // $this->ajax         = $this->di->get('ajax');
         $this->redirect     = $this->di->get('redirect');
         $this->load         = $this->di->get('load');
         $this->model        = $this->di->get('model');

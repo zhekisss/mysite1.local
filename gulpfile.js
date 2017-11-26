@@ -26,6 +26,13 @@ gulp.task('sass', function() {
         .pipe(gulp.dest('content/themes/default/css'))
 });
 
+gulp.task('sassAdmin', function() {
+    return gulp.src('content/themes/default/sass/style.scss')
+        .pipe(plumber())
+        .pipe(sass())
+        .pipe(gulp.dest('content/themes/default/css'))
+});
+
 gulp.task('minicss', function() {
     return gulp.src('content/themes/default/css/style.css')
         .pipe(plumber())
@@ -40,6 +47,23 @@ gulp.task('minicss', function() {
         }))
         // .pipe(sourceMaps.write())
         .pipe(gulp.dest('content/themes/default/css'))
+
+});
+
+gulp.task('minicssAdmin', function() {
+    return gulp.src('admin/Assets/css/style.css')
+        .pipe(plumber())
+        // .pipe(sourceMaps.init())
+        .pipe(miniCss({
+            keepSpecialComments: 0,
+            restructuring: false,
+            processImport: false
+        }))
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        // .pipe(sourceMaps.write())
+        .pipe(gulp.dest('admin/Assets/css/'));
 
 });
 
@@ -67,10 +91,23 @@ gulp.task('minijs', function() {
         .pipe(gulp.dest('content/themes/default/js'))
 });
 
+gulp.task('minijsAdmin', function() {
+    return gulp.src('admin/Assets/js/main.js')
+        .pipe(plumber())
+        .pipe(minijs())
+        .pipe(rename({
+            suffix: '.min'
+        }))
+        .pipe(gulp.dest('admin/Assets/js'));
+});
+
 gulp.task('watchSass', function() {
     gulp.watch('content/themes/default/sass/style.scss', ['sass', 'log'])
     gulp.watch('content/themes/default/css/style.css', ['minicss', 'log'])
     gulp.watch('content/themes/default/js/main.js', ['minijs', 'log'])
+
+    gulp.watch('admin/Assets/css/style.css', ['minicssAdmin', 'log'])
+    gulp.watch('admin/Assets/js/main.js', ['minijsAdmin', 'log'])
 });
 gulp.task('log', function() {
     console.log('OK');

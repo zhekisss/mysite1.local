@@ -26,6 +26,12 @@ class View extends Theme
         $this->request  = $di->get('request');
     }
     
+    /**
+     * Undocumented function
+     *
+     * @param [type] $template
+     * @return void
+     */
     public function render($template)
     {
         $templatePath = $this->getTemplatePath($template, ENV);

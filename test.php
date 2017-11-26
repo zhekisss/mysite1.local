@@ -2,63 +2,64 @@
 // header('Location: http://yandex.ru');
 
 function rus_date() {
-    // Перевод
-    $translate = array(
-    "am" => "дп",
-    "pm" => "пп",
-    "AM" => "ДП",
-    "PM" => "ПП",
-    "Monday" => "Понедельник",
-    "Mon" => "Пн",
-    "Tuesday" => "Вторник",
-    "Tue" => "Вт",
-    "Wednesday" => "Среда",
-    "Wed" => "Ср",
-    "Thursday" => "Четверг",
-    "Thu" => "Чт",
-    "Friday" => "Пятница",
-    "Fri" => "Пт",
-    "Saturday" => "Суббота",
-    "Sat" => "Сб",
-    "Sunday" => "Воскресенье",
-    "Sun" => "Вс",
-    "January" => "Января",
-    "Jan" => "Янв",
-    "February" => "Февраля",
-    "Feb" => "Фев",
-    "March" => "Марта",
-    "Mar" => "Мар",
-    "April" => "Апреля",
-    "Apr" => "Апр",
-    "May" => "Мая",
-    "May" => "Мая",
-    "June" => "Июня",
-    "Jun" => "Июн",
-    "July" => "Июля",
-    "Jul" => "Июл",
-    "August" => "Августа",
-    "Aug" => "Авг",
-    "September" => "Сентября",
-    "Sep" => "Сен",
-    "October" => "Октября",
-    "Oct" => "Окт",
-    "November" => "Ноября",
-    "Nov" => "Ноя",
-    "December" => "Декабря",
-    "Dec" => "Дек",
-    "st" => "ое",
-    "nd" => "ое",
-    "rd" => "е",
-    "th" => "ое"
-    );
-    // если передали дату, то переводим ее
-    if (func_num_args() > 1) {
-        $timestamp = func_get_arg(1);
-        return strtr(date(func_get_arg(0), $timestamp), $translate);
-    } else {
-        // иначе текущую дату
-        return strtr(date(func_get_arg(0)), $translate);
-    }
+	// 	Перевод
+	    $translate = array(
+	    "am" => "дп",
+	    "pm" => "пп",
+	    "AM" => "ДП",
+	    "PM" => "ПП",
+	    "Monday" => "Понедельник",
+	    "Mon" => "Пн",
+	    "Tuesday" => "Вторник",
+	    "Tue" => "Вт",
+	    "Wednesday" => "Среда",
+	    "Wed" => "Ср",
+	    "Thursday" => "Четверг",
+	    "Thu" => "Чт",
+	    "Friday" => "Пятница",
+	    "Fri" => "Пт",
+	    "Saturday" => "Суббота",
+	    "Sat" => "Сб",
+	    "Sunday" => "Воскресенье",
+	    "Sun" => "Вс",
+	    "January" => "Января",
+	    "Jan" => "Янв",
+	    "February" => "Февраля",
+	    "Feb" => "Фев",
+	    "March" => "Марта",
+	    "Mar" => "Мар",
+	    "April" => "Апреля",
+	    "Apr" => "Апр",
+	    "May" => "Мая",
+	    "May" => "Мая",
+	    "June" => "Июня",
+	    "Jun" => "Июн",
+	    "July" => "Июля",
+	    "Jul" => "Июл",
+	    "August" => "Августа",
+	    "Aug" => "Авг",
+	    "September" => "Сентября",
+	    "Sep" => "Сен",
+	    "October" => "Октября",
+	    "Oct" => "Окт",
+	    "November" => "Ноября",
+	    "Nov" => "Ноя",
+	    "December" => "Декабря",
+	    "Dec" => "Дек",
+	    "st" => "ое",
+	    "nd" => "ое",
+	    "rd" => "е",
+	    "th" => "ое"
+	    );
+	// 	если передали дату, то переводим ее
+	    if (func_num_args() > 1) {
+		$timestamp = func_get_arg(1);
+		return strtr(date(func_get_arg(0), $timestamp), $translate);
+	}
+	else {
+		// 		иначе текущую дату
+		        return strtr(date(func_get_arg(0)), $translate);
+	}
 }
 
 date_default_timezone_set('Asia/Yekaterinburg');
@@ -67,7 +68,6 @@ echo rus_date("D M j G:i:s T Y");
 ?>
   <!DOCTYPE html>
   <html lang="en">
-
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,32 +75,28 @@ echo rus_date("D M j G:i:s T Y");
     <link rel="stylesheet" href="/test.css">
     <title>Document</title>
   </head>
-
   <body>
-
     <div class="construct">
       <?php
 
 ?>
     </div>
-
     <script>
       var obj = new Object();
-
       console.log(obj);
     </script>
     <?php
 
 class Test
 {
-    private $x;
-    public $y;
-    
-    public function FunctionName(Type $var = null)
-    {
-        # code...
-        
-    }
+	private $x;
+	public $y;
+	
+	public function FunctionName(Type $var = null)
+	    {
+		# code...
+		
+	}
 }
 
 $MyNewObj = new Test;
@@ -114,14 +110,27 @@ $pass = 'admin@admin.comroot';
 
 function salt()
 {
-    return (string) rand(10000000, 99999999);
+	return (string) rand(10000000, 99999999);
 }
 
 $salt = salt();
 
-echo hash('sha256',$pass.$salt)."\n";
+// echo hash('sha256',$pass.$salt)."\n";
+
+$config = [
+    'host'      => 'localhost',
+    'dbname'    => 'project_cms',
+    'charset'   => 'utf8',
+    'username'  => 'root',
+    'password'  => ''
+    ];
+
+$config = base64_encode(serialize($config));
+echo "\n Массив: $config\n";
+$config = unserialize(base64_decode($config));
+echo "\n Массив:" . print_r($config) . "\n";
 
 ?>
   </body>
-
   </html>
+  

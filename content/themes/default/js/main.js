@@ -16,7 +16,7 @@ var header = $('header'),
     ths = $(this),
     elementOffset = [],
     footerHeight = $('#footer').height(),
-    scrollDuration = 1500,
+    scrollDuration = 1000,
     count = 0,
     flag = false, // нужен для того, чтоб предотвращать действия во время анимации
     bn = 0, // индекс текущего блока
@@ -29,10 +29,6 @@ var header = $('header'),
 
 var navLi = document.querySelectorAll('nav ul li a');
 
-navLi.forEach(function(obj, index) {
-    index = index + 1;
-    obj.innerHTML += " " + index;
-});
 // console.log(navLi);
 //
 // menuNav.each(function (i) {
@@ -151,7 +147,7 @@ begin.on('click', function(e) {
 
 $('.carousel.carousel-slider').carousel({
     fullWidth: true,
-    duration: 1000,
+    duration: 500,
     indicators: true
 });
 
@@ -159,7 +155,7 @@ function nextSlide() {
     $('.carousel').carousel('next');
 }
 
-var duration = 7000;
+var duration = 4000;
 var nextSlideInterval = setInterval(nextSlide, duration);
 
 $('.carousel').on('mouseenter', function() {

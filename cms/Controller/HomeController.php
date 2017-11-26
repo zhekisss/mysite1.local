@@ -11,10 +11,12 @@ class HomeController extends CmsController{
         // $this->load->model('Page');
         // $this->load->model('User');
         
-        // $model = $this->di->get('model');
-        $this->view->setData('model', $this->model);
-        $this->view->render('index', $this->model);
+        // $model = $this->di->get('model');  
         
+        // $this->view->setData('page', $this->model->page);
+        // $this->view->setData('user', $this->model->user);
+      
+        $this->view->render('index');
     }
     
     public function news($id = false)

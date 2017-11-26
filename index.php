@@ -1,10 +1,12 @@
 <?php
+
 session_start();
 ini_set('memory_limit', '256M');
 define('ROOT_DIR', __DIR__);
 define('ENV','Cms');
-// error_reporting(-1);
 date_default_timezone_set('Asia/Yekaterinburg');
+
+// error_reporting(-1);
 // error_reporting(E_ALL);
 // set_error_handler("handlerErrors");
 // function handlerErrors($code, $msg, $file, $line) {

@@ -29,6 +29,8 @@ class AdminController extends Controller
             $this->redirect->redirect('/admin/login/');
             exit;
         }
+        $this->view->setData('page', $this->model->page);
+        $this->view->setData('user', $this->model->user);
     }
     
     /**

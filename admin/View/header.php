@@ -7,6 +7,8 @@
   <meta name="description" content="">
   <meta name="author" content="">
   <link rel="icon" href="favicon.ico">
+  <link rel="stylesheet" href="/admin/Assets/lib/materialize.min.css">
+  <link rel="stylesheet" href="/admin/Assets/css/style.min.css">
 
   <title>Админ-панель</title>
 
@@ -15,42 +17,42 @@
 <body>
   <header>
 
-    <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-      <div class="container">
-        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-        <a class="navbar-brand" href="#">Admin CMS</a>
-        <div class="collapse navbar-collapse" id="navbarNavDropdown">
-          <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <a class="nav-link" href="#">
-                <i class="icon-speedometer icons"></i> Home
+    <nav class="">
+      <?php if (isset($this->request->session['auth_authorized'])): ?>
+      <div class="container  red lighten-2">
+        
+        <a class="" href="#">Admin CMS</a>
+        <div class="" id="">
+          <ul class="menu">
+            <li class="menu-item">
+              <a class="" href="/admin">
+                <i class=""></i> Home
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="/admin/pages/">
-                <i class="icon-doc icons"></i> Pages
+            <li class="menu-item">
+              <a class="" href="/admin/pages/">
+                <i class=""></i> Pages
               </a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="#">
-                <i class="icon-pencil icons"></i> Posts
+            <li class="menu-item">
+              <a class="" href="#">
+                <i class=""></i> Posts
               </a>
             </li>
-            <li class="nav-item dropdown">
-              <a class="nav-link">
-                <i class="icon-equalizer icons"></i> Settings
+            <li class="menu-item">
+              <a class="">
+                <i class=""></i> Settings
               </a>
             </li>
           </ul>
         </div>
 
-        <div class="right-toolbar">
+        <div class="">
           <a href="/admin/logout/">
-            <i class="icon-logout icons"></i> Logout
+            <i class=""></i> Logout
           </a>
         </div>
       </div>
+      <?php endif; ?>
     </nav>
   </header>

@@ -14,6 +14,7 @@ class UserRepository extends Model
             ->sql();
 
         return $this->db->query($sql);
+
     }
 
     public function test()
@@ -22,7 +23,6 @@ class UserRepository extends Model
         $user->setEmail('test@admin.com');
         $user->setPassword(md5(rand(1, 10)));
         $user->setRole('user');
-        $user->setHash('new');
         $user->save();
     }
     

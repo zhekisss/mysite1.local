@@ -72,13 +72,5 @@ $themePath = $_SERVER['DOCUMENT_ROOT'];
       </div>
 
     </header>
-    <?php 
-    foreach ($this->model->page->getPages()[0] as $key => $value){
-      echo "$key = $value <br>";
-    };
-    foreach ($this->model->user->getUsers()[0] as $key => $value){
-      echo "$key = $value <br>";
-    };
     
-    ?>
     <?php $this->sidebar(); ?>

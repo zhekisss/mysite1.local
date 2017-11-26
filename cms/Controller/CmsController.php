@@ -12,6 +12,9 @@ class CmsController extends Controller{
     public function __construct($di){
         
         parent::__construct($di);
+
+        $this->view->setData('page', $this->model->page);
+        $this->view->setData('user', $this->model->user);
     }
 
 }

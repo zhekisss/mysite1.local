@@ -1,5 +1,5 @@
 <?php
 return [
     // 'theme'  => 'ATN',
-    'host' => 'mysite1.local'
+    'host' => 'mysite1.local',
 ];

@@ -1,5 +1,5 @@
 {
-    "name": "user1/mysite1.local",
+    "name": "mysite1.local",
     "require": {},
     "autoload": {
         "psr-4": {

@@ -1,16 +1,45 @@
 <?php $this->header(); ?>
-<div id="content">
-<h1>LIST</h1>
+<div id="content" class="container">
+
+
+<table class="highlight">
+        <thead>
+            <tr>
+                <th>
+                    Страницы
+                </th>
+                <th>
+                    Категория
+                </th>
+                <th>
+                    Время
+                </th>
+            </tr>
+        </thead>
+
 <?php
 $count = 1;
 foreach ($this->page->getPages() as $page) :
 ?>
-<p><a href="/admin/<?= $page->name; ?>"><?= $count++ . '. ' . $page->name . ' - ' . $page->time ?></a></p>
-<?php
+    <tr>
+        <td>
+            <a href="/admin/<?= $page->name; ?>"><?= $count++ . '. ' . $page->name; ?></a>
+        </td>
+        <td>
+            <?= $page->category; ?>
+        </td>
+        <td>
+        <?= $page->time ?>
+        </td>
+    </tr>
+    
+    <?php
     // foreach ($page as $key => $value) :
-    //     echo "$key = $value <br>";
-    // endforeach;
-endforeach;
-?>
+        //     echo "$key = $value <br>";
+        // endforeach;
+    endforeach;
+    ?>
+
+    </table>
 </div>
 <?php $this->footer(); ?>

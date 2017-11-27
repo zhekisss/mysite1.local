@@ -31,6 +31,13 @@ class AdminController extends Controller
         }
         $this->view->setData('page', $this->model->page);
         $this->view->setData('user', $this->model->user);
+        if (isset($this->request->session['user_name'] )){
+            $this->view->setData('authuser', $this->request->session['user_name']);
+        } else {
+            $user_name = new \stdClass();
+            $user_name->name = 'Не авторизован';
+            $this->view->setData('authuser', $user_name);
+        }
     }
     
     /**

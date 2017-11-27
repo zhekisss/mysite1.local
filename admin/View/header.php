@@ -17,41 +17,42 @@
 <body>
   <header>
 
-    <nav class="">
+    <nav class="container blue lighten-2 row center-align">
+    <a class="col s2 xl2 l2" href="#"><?= $this->authuser->name; ?></a>
       <?php if (isset($this->request->session['auth_authorized'])): ?>
-      <div class="container  red lighten-2">
         
-        <a class="" href="#">Admin CMS</a>
-        <div class="" id="">
           <ul class="menu">
             <li class="menu-item">
               <a class="" href="/admin">
-                <i class=""></i> Home
+                 Home
               </a>
             </li>
             <li class="menu-item">
               <a class="" href="/admin/pages/">
-                <i class=""></i> Pages
+                 Pages
               </a>
             </li>
             <li class="menu-item">
               <a class="" href="#">
-                <i class=""></i> Posts
+                 Posts
               </a>
             </li>
             <li class="menu-item">
               <a class="">
-                <i class=""></i> Settings
+                 Settings
               </a>
             </li>
-          </ul>
-        </div>
+            <li class="menu-item">
+              <a href="/admin/logout/">
+              Logout
+            </a>
 
-        <div class="">
-          <a href="/admin/logout/">
-            <i class=""></i> Logout
-          </a>
-        </div>
+            </li>
+          </ul>
+        
+
+        
+        
       </div>
       <?php endif; ?>
     </nav>

@@ -1,10 +1,10 @@
 <?php
 
-namespace Model\Post;
+namespace Model\Routes;
 
 use Engine\Model;
 
-class PostRepository extends Model
+class RoutesRepository extends Model
 {
     /**
      * @return mixed

@@ -37,8 +37,10 @@ abstract class Controller
 
         $this->load->model('Page');
         $this->load->model('User');
+        $this->load->model('Post');
+        $this->load->model('Routes');
 
         $this->model = $this->di->get('model');
-        
+        unset($this->di);
     }
 }

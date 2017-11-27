@@ -29,5 +29,6 @@ abstract class Model
         $this->config  = $this->di->get('config');
         
         $this->queryBuilder = new QueryBuilder();
+        unset($this->di);
     }
 }

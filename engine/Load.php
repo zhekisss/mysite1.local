@@ -47,7 +47,7 @@ class Load
 
             $this->di->set('model', $modelRegistry);
         }
-        // unset($this->di);
+        
         return $isClassModel;
     }
 

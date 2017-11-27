@@ -15,6 +15,8 @@ class CmsController extends Controller{
 
         $this->view->setData('page', $this->model->page);
         $this->view->setData('user', $this->model->user);
+        $this->view->setData('post', $this->model->post);
+        $this->view->setData('routes', $this->model->routes);
     }
 
 }
